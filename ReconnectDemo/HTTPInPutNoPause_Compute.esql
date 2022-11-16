@@ -1,0 +1,12 @@
+
+
+CREATE COMPUTE MODULE HTTPInPutNoPause_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties = InputProperties;
+		SET OutputRoot.Properties.ContentType = 'application/json';
+		SET OutputRoot.JSON.Data.result = 'success';
+		RETURN TRUE;
+	END;
+
+END MODULE;

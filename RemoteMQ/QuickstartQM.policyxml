@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policies>
+  <policy policyType="MQEndpoint" policyName="QuickstartQM" policyTemplate="MQEndpoint">
+    <connection>CLIENT</connection>
+    <destinationQueueManagerName>QUICKSTART</destinationQueueManagerName>
+    <queueManagerHostname>localhost</queueManagerHostname>
+    <listenerPortNumber>1414</listenerPortNumber>
+    <channelName>SYSTEM.DEF.SVRCONN</channelName>
+    <CCDTUrl></CCDTUrl>
+    <securityIdentity></securityIdentity>
+    <useSSL>false</useSSL>
+    <SSLPeerName></SSLPeerName>
+    <SSLCipherSpec></SSLCipherSpec>
+    <SSLCertificateLabel></SSLCertificateLabel>
+    <MQApplName></MQApplName>
+    <reconnectOption>enabled</reconnectOption>
+  </policy>
+</policies>
