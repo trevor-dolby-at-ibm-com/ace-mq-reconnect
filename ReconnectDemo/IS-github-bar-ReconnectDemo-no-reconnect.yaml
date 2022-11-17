@@ -1,0 +1,37 @@
+apiVersion: appconnect.ibm.com/v1beta1
+kind: IntegrationServer
+metadata:
+  name: reconnect-demo
+  labels: {}
+spec:
+  adminServerSecure: false
+  barURL: >-
+    https://github.com/trevor-dolby-at-ibm-com/ace-mq-reconnect/raw/main/ReconnectDemo/ReconnectDemo.bar
+  configurations:
+    - github-barauth
+    - ace-mq-policy
+    - remote-mq
+  createDashboardUsers: true
+  designerFlowsOperationMode: disabled
+  enableMetrics: true
+  license:
+    accept: true
+    # For ACE 12.0.6
+    license: L-APEH-CFZE47
+    use: AppConnectEnterpriseProduction
+  pod:
+    containers:
+      runtime:
+        resources:
+          limits:
+            cpu: 300m
+            memory: 350Mi
+          requests:
+            cpu: 300m
+            memory: 300Mi
+  replicas: 1
+  router:
+    timeout: 120s
+  service:
+    endpointType: http
+  version: '12.0'
