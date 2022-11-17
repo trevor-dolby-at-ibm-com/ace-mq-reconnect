@@ -3,7 +3,7 @@
 while true
 do
     echo Running curl at `date`
-    curl http://localhost:7800/HTTPInPutNoPause
+    curl http://reconnect-demo-http-ace.apps.cp4i-demo.xxx.com/HTTPInPutNoPause
     echo " at `date`"
     sleep 1
 done
