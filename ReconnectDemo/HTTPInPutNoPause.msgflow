@@ -6,19 +6,19 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/ReconnectDemo/icons/full/obj16/HTTPInPutNoPause.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/ReconnectDemo/icons/full/obj30/HTTPInPutNoPause.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_8" location="263,74" queueName="BACKEND" transactionMode="no">
+      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_8" location="367,181" queueName="BACKEND" transactionMode="no">
         <translation xmi:type="utility:ConstantString" string="MQ Output"/>
       </nodes>
-      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="15,77" URLSpecifier="/HTTPInPutNoPause">
+      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="118,184" URLSpecifier="/HTTPInPutNoPause">
         <translation xmi:type="utility:ConstantString" string="HTTP Input"/>
       </nodes>
-      <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="535,82">
+      <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="636,189">
         <translation xmi:type="utility:ConstantString" string="HTTP Reply"/>
       </nodes>
-      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="129,72" computeExpression="esql://routine/#HTTPInPutNoPause_Compute.Main">
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="232,180" computeExpression="esql://routine/#HTTPInPutNoPause_Compute.Main">
         <translation xmi:type="utility:ConstantString" string="Compute"/>
       </nodes>
-      <nodes xmi:type="ComIbmMQHeader.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="375,77" mqmdAAAOptions="Delete header" mqmdCodedCharSetId="MQCCSI_Q_MGR" mqmdFormat="MQFMT_NONE" mqmdVersion="MQMD_VERSION_1" mqmdMsgType="MQMT_DATAGRAM" mqmdExpiry="MQEI_UNLIMITED" mqmdFeedback="MQFB_NONE" mqmdPriority="MQPRI_PRIORITY_AS_Q_DEF" mqmdPersistence="MQPER_PERSISTENCE_AS_Q_DEF" mqmdMsgId="MQMI_NONE" mqmdCorrelId="MQCI_NONE">
+      <nodes xmi:type="ComIbmMQHeader.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="478,185" mqmdAAAOptions="Delete header" mqmdCodedCharSetId="MQCCSI_Q_MGR" mqmdFormat="MQFMT_NONE" mqmdVersion="MQMD_VERSION_1" mqmdMsgType="MQMT_DATAGRAM" mqmdExpiry="MQEI_UNLIMITED" mqmdFeedback="MQFB_NONE" mqmdPriority="MQPRI_PRIORITY_AS_Q_DEF" mqmdPersistence="MQPER_PERSISTENCE_AS_Q_DEF" mqmdMsgId="MQMI_NONE" mqmdCorrelId="MQCI_NONE">
         <translation xmi:type="utility:ConstantString" string="Remove MQMD Header"/>
       </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_1" sourceNode="FCMComposite_1_3" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
@@ -27,6 +27,16 @@
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
     </composition>
     <propertyOrganizer/>
-    <stickyBoard/>
+    <stickyBoard>
+      <stickyNote location="153,86" association="FCMComposite_1_1">
+        <body xmi:type="utility:ConstantString" string="Create message body&#xA;and set MQMD.Expiry"/>
+      </stickyNote>
+      <stickyNote location="343,86" association="FCMComposite_1_8">
+        <body xmi:type="utility:ConstantString" string="Put message to &#xA;BACKEND queue"/>
+      </stickyNote>
+      <stickyNote location="504,86" association="FCMComposite_1_2">
+        <body xmi:type="utility:ConstantString" string="Remove MQMD to avoid&#xA;binary curl output"/>
+      </stickyNote>
+    </stickyBoard>
   </eClassifiers>
 </ecore:EPackage>

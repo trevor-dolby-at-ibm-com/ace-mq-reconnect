@@ -4,8 +4,11 @@ CREATE COMPUTE MODULE HTTPInPutNoPause_Compute
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
 		SET OutputRoot.Properties = InputProperties;
+		-- Make curl treat the response as JSON
 		SET OutputRoot.Properties.ContentType = 'application/json';
-		SET OutputRoot.MQMD.Expiry = 100; -- Ten seconds
+		-- Set Expiry to ten seconds
+		SET OutputRoot.MQMD.Expiry = 100;
+		-- This should be last to ensure the body is the last parser in the tree
 		SET OutputRoot.JSON.Data.result = 'success';
 		RETURN TRUE;
 	END;
