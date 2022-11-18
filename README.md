@@ -1,6 +1,8 @@
 # ace-mq-reconnect
 Examples for experiments around ACE and MQ reconnect capabilities.
 
+## ReconnectTests
+
 Each test flow has a separate pair of queues (or a URL and a queue) and is constructed so that it will wait 
 for a user to press enter at various points before continuing. The points are:
 
@@ -16,7 +18,7 @@ various flows. The TransactionalGetMPut flow looks as follows (others are simila
 
 ![TransactionalGetMPut](ReconnectTests/TransactionalGetMPut.png)
 
-## Running the flows
+### Running the flows
 
 Putting a message on a queue (such as `ACE.TRAN.GET.MPUT.IN`) will cause the server to print some messages and
 require the enter key to be pressed in order to continue:
@@ -42,3 +44,11 @@ message will be printed, followed by the failure terminal prompt as the message 
 The HTTP flows can be triggered using curl: `curl http://localhost:7800/HTTPInMPut` would trigger the HTTPInMPut
 flow with similar output to that shown above.
 
+## ReconnectDemo
+
+Allows flow and server behavior to be explored without needing keys to be pressed, and is intended 
+to be used in conjunction with the blog post at
+
+https://community.ibm.com/community/user/integration/blogs/trevor-dolby/2022/11/16/ace-and-mq-reconnect-as-seen-from-an-http-client
+
+See [ReconnectDemo/README.md](ReconnectDemo/README.md) for more information.
